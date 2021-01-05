@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>HotelApp</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="room">
+    <ion-card-content>
+      Tytuł: {{room.title}} <br/>
+      Cena: {{room.price}} <br/>
+      Pojemność: {{room.maxCapacity}} <br/>
+      Piętro: {{room.floor}} <br/>
+      Numer: {{room.numberRM}} <br/>
+    </ion-card-content>
+  </ion-card>
+  <br/>
+  <form [formGroup]="contactForm">
+    <ion-item>
+      <ion-text>
+        Wybór Terminu:
+        <br/>
+        <br/>
+        <br/>
+        Od:
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Dzień</ion-label>
+      <ion-select formControlName="dayStart" name="dayStart" placeholder="Dzień">
+        <ion-select-option name="dayStart" *ngFor="let d of dni" [value]="d">{{d}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Miesiąc</ion-label>
+      <ion-select formControlName="monthStart" name="monthStart" placeholder="Miesiąc" (ionChange)="getDays()">
+        <ion-select-option name="monthStart" *ngFor="let m of months" [value]="m">{{m}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Rok</ion-label>
+      <ion-select formControlName="yearStart" name="yearStart" placeholder="Rok">
+        <ion-select-option name="yearStart" *ngFor="let r of years" [value]="r">{{r}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <br/>
+    <br/>
+
+    <ion-item>
+      <ion-text>
+        Do:
+      </ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-label>Dzień</ion-label>
+      <ion-select formControlName="dayEnd" name="dayEnd" placeholder="Dzień">
+        <ion-select-option name="dayEnd" *ngFor="let d of dni" [value]="d">{{d}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Miesiąc</ion-label>
+      <ion-select formControlName="monthEnd" name="monthEnd" placeholder="Miesiąc"  (ionChange)="getDays()">
+        <ion-select-option name="monthEnd" *ngFor="let m of months" [value]="m">{{m}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Rok</ion-label>
+      <ion-select formControlName="yearEnd" name="yearEnd" placeholder="Rok">
+        <ion-select-option name="yearEnd" *ngFor="let r of years" [value]="r">{{r}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+
+  </form>
+  <ion-button expand="block" (click)="onSubmit()">Dodaj Rezerwacje</ion-button>
+  <ion-button expand="block" (click)="goToRoom()">Powrót do Oferty</ion-button>
+</ion-content>

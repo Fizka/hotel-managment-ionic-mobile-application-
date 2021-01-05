@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>HotelApp</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br/>
+  <ion-item>
+    <ion-input placeholder="Login" required [(ngModel)]="loginPodany" ></ion-input>
+  </ion-item>
+  <br/>
+  <ion-item>
+    <ion-input placeholder="Hasło" type="password" required [(ngModel)]="passwordPodane"></ion-input>
+  </ion-item>
+  <br/>
+  <ion-button expand="block" (click)="onSubmit()">Zaloguj</ion-button>
+  <ion-button expand="block" color="secondary" (click)="register()">Rejestracja</ion-button>
+</ion-content>

@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>HotelApp</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="room">
+    <ion-card-header>
+      <img src="assets/{{room.urlImages}}">
+      <ion-card-title>{{room.title}}</ion-card-title>
+      <ion-card-subtitle>Cena: {{room.price}}</ion-card-subtitle>
+      <ion-card-subtitle>Pojemność: {{room.maxCapacity}}</ion-card-subtitle>
+      <ion-card-subtitle>Piętro: {{room.floor}}</ion-card-subtitle>
+      <ion-card-subtitle>Numer: {{room.numberRM}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      {{room.description }}
+    </ion-card-content>
+  </ion-card>
+  <ion-button expand="block" (click)="goToReservationPage()">Rezerwuj</ion-button>
+  <ion-button expand="block" (click)="goBack()">Powrót</ion-button>
+</ion-content>
